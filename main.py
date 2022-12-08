@@ -23,7 +23,7 @@ while wants_to_play_again == True:
 
     name = str(input("Hello! Welcome to your game. What is your first name?"))
 
-    last_name = str(input("Hello! Welcome to your game. What is your last name?"))
+    last_name = str(input("What is your last name?"))
 
     # Here I just quickly convert the names into capitalized names and save them
     name = name.title()
@@ -115,23 +115,25 @@ while wants_to_play_again == True:
             # You will see the question structure of the loop with try and except statements everywhere. Sometimes even contained within questions.
             # I am asking the user if they want a practice game here
 
+
             while valid_wants_practice_game_answer == False:
                 wants_practice_game = input('''\nAmazing! Would you like to try a practice level before we get started with the main game?
                 Please press 1 if you want a practice level.
                 Please press 2 if you want to head straight to the game.''')
+                print("checkpoint")
 
                 try:
                     wants_practice_game = int(wants_practice_game)
 
-                    if wants_practice_game == 1 or wants_practice_game == 2:
-                        valid_knows_backstory_answer = True
+                    if int(wants_practice_game) == 1 or int(wants_practice_game) == 2:
+                        valid_wants_practice_game_answer = True
                     else:
                         print("Please enter only 1 or 2 to select an option.")
 
                 except ValueError:
                     print("Please only enter 1 or 2 to select an option.")
 
-            if wants_practice_game == 1:
+            if int(wants_practice_game) == 1:
 
                 # If the user wants a practice game, I will give them a simple game where they can practice the commands.
                 print('''\nGreat! Let's get started with the practice game.''')
